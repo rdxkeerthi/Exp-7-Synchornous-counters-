@@ -46,16 +46,21 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 3-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+
+1.Create a new project in Quartus II software. 2.Name the project as uc for upcounter and dc for downcounter. 3.Create a new Verilog HDL file in the project file. 4.Name the module as dc and uc for downcounter and upcounter. 5.Within the module declare input and output variables. 6.Complete the program. 7.End the module.
+
 
 
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
+
 Developed by: keerthivasan M
+
 RegisterNumber: 23014067
-*/
+
+
 ### UP COUNTER 
 ```
 module uc(clk, A);
