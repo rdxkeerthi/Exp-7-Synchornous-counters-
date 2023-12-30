@@ -1,11 +1,11 @@
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
+### AIM: To implement 3 bit up and down counters and validate  functionality.
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
 ### THEORY 
 
 ## UP COUNTER 
-The counter is a digital sequential circuit and here it is a 4 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
+The counter is a digital sequential circuit and here it is a 3 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
 
 The counter (“count“) value will be evaluated at every positive (rising) edge of the clock (“clk“) cycle.
 The Counter will be set to Zero when “reset” input is at logic high.
@@ -44,7 +44,7 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 ![image](https://user-images.githubusercontent.com/36288975/169644844-1a14e123-7228-4ed8-81a9-eb937dff4ac8.png)
 
 
-4-bit Count Down Counter
+3-bit Count Down Counter
 ### Procedure
 /* write all the steps invloved */
 
@@ -53,36 +53,86 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: keerthivasan M
+RegisterNumber: 23014067
 */
+### UP COUNTER 
+```
+module uc(clk, A);
 
+input clk;
 
+output reg [2:0]A;
+
+always @(posedge clk)
+
+begin
+
+A[2]=(((A[0])&(A[1]))^A[2]);
+
+A[1]=(A[0])^A[1];
+
+A[0]=A[0]^1;
+
+end
+
+endmodule
+```
+### DOWN COUNTER 
+```
+module dc(clk,A);
+
+input clk;
+
+output reg [2:0]A;
+
+always @(posedge clk)
+
+begin
+
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+
+A[1]=(~A[0])^A[1];
+
+A[0]=1^A[0];
+
+end
+endmodule
+```
 
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+###  UP COUNTER 
 
+![Screenshot 2023-12-30 134513](https://github.com/rdxkeerthi/Exp-7-Synchornous-counters-/assets/147473120/2e121c90-c3af-4d3d-a506-74252b523f15)
 
-
-
-
+###  DOWN COUNTER 
+![Screenshot 2023-12-30 134520](https://github.com/rdxkeerthi/Exp-7-Synchornous-counters-/assets/147473120/e697b481-17c7-4fc4-90d9-960cb05839d5)
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+###  UP COUNTER 
 
+![Screenshot 2023-12-30 134529](https://github.com/rdxkeerthi/Exp-7-Synchornous-counters-/assets/147473120/57ad141a-7891-4748-a482-9831f7eae68c)
 
+###  DOWN COUNTER 
 
+![Screenshot 2023-12-30 134535](https://github.com/rdxkeerthi/Exp-7-Synchornous-counters-/assets/147473120/bd6dc290-9616-44a7-acdd-352582e10389)
 
 
 ### TRUTH TABLE 
+###  UP COUNTER 
+![Screenshot 2023-12-30 134541](https://github.com/rdxkeerthi/Exp-7-Synchornous-counters-/assets/147473120/a558ef78-f59f-4317-8c98-283b5142ee92)
 
+###  DOWN COUNTER 
 
-
+![Screenshot 2023-12-30 134547](https://github.com/rdxkeerthi/Exp-7-Synchornous-counters-/assets/147473120/3895f438-32e2-442c-97ed-9358e5fc4ce1)
 
 
 
 ### RESULTS 
+Thus, the flipflops are implemented using verilog.
